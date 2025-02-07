@@ -26,6 +26,7 @@ ConnectDB();
 app.get("/", (req, res) => {
     res.json("Working");
 })
+
 // Route to register a new user
 app.post("/register", async (req, res) => {
     const { name, email, password } = req.body;
