@@ -18,6 +18,7 @@ const app = express();
 // Middleware configuration
 app.use(cors(corsOptions));
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 // Establish database connection
 ConnectDB();
@@ -94,14 +95,16 @@ app.post("/view-event", async (req, res) => {
 });
 //Route to add event
 app.post("/add-event", async (req, res) => {
-    const { userId, eventName,catagory, dateAndTime, description, date, attendees } = req.body;
+    const { userId, ownerName, eventName,catagory, dateAndTime, description, date, imageUrl, attendees } = req.body;
     const datas = {
         userId: userId,
+        ownerName:ownerName,
         eventName: eventName,
         catagory:catagory,
         dateAndTime:dateAndTime,
         description: description,
         date: date,
+        imageUrl:imageUrl,
         attendees: attendees
     }
 

@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 
 const eventsSchemaModel = new mongoose.Schema({
     userId:String,
+    ownerName:String,
     eventName: String,
     catagory:String,
     description: String,
@@ -10,6 +11,7 @@ const eventsSchemaModel = new mongoose.Schema({
         date:String,
         time:String
     },
+    imageUrl:String,
     attendees:[String]
 });
 
