@@ -8,6 +8,7 @@ const ConnectDB = require("./src/config/db");
 const usersSchemaModel = require("./src/models/users");
 const eventsSchemaModel = require("./src/models/events");
 
+
 // Define CORS options to allow cross-origin requests
 const corsOptions = {
     origin: '*',
