@@ -1,12 +1,12 @@
 // Creating Database Connection
 const mongoose = require("mongoose");
 
-const ConnectDB = async ()=>{
-try{
-    await mongoose.connect();
-    console.log("Database connected successfully");
-}catch(error){
-    console.log("Database could not connect due to :-", error);
+const ConnectDB = ()=>{
+    mongoose.connect(process.env.DB).then(()=>{
+        console.log("Database connected");
+    }).catch((errors)=>{
+    
+        console.log("Cannot connect to the database due to :-", errors);
+    })
 }
-}
-module.exports = ConnectDB()//Exporting ConnectDB Function To Server
+module.exports = ConnectDB//Exporting ConnectDB Function To Server
