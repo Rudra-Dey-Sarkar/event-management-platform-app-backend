@@ -94,10 +94,12 @@ app.post("/view-event", async (req, res) => {
 });
 //Route to add event
 app.post("/add-event", async (req, res) => {
-    const { userId, eventName, description, date, attendees } = req.body;
+    const { userId, eventName,catagory, dateAndTime, description, date, attendees } = req.body;
     const datas = {
         userId: userId,
         eventName: eventName,
+        catagory:catagory,
+        dateAndTime:dateAndTime,
         description: description,
         date: date,
         attendees: attendees
