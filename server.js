@@ -80,7 +80,7 @@ app.post("/login", async (req, res) => {
 });
 
 //Route to view event
-app.post("/view-event", async (req, res) => {
+app.post("/view-events", async (req, res) => {
     const { userId } = req.body;
 
     try {
@@ -96,12 +96,12 @@ app.post("/view-event", async (req, res) => {
 });
 //Route to add event
 app.post("/add-event", async (req, res) => {
-    const { userId, ownerName, eventName,catagory, dateAndTime, description, date, imageUrl, attendees } = req.body;
+    const { userId, ownerName, eventName,category, dateAndTime, description, date, imageUrl, attendees } = req.body;
     const datas = {
         userId: userId,
         ownerName:ownerName,
         eventName: eventName,
-        catagory:catagory,
+        category:category,
         dateAndTime:dateAndTime,
         description: description,
         date: date,
@@ -111,8 +111,8 @@ app.post("/add-event", async (req, res) => {
 
     try {
         const response = await eventsSchemaModel.insertMany([datas]);
-        if (response.length > 0) {
-            res.status(200).json(message);
+        if (response) {
+            res.status(200).json(response);
         } else {
             res.status(404).json("Cannot insert data");
         }
