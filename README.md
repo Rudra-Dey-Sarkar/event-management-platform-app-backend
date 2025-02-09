@@ -9,7 +9,7 @@ Storage :- Supabase Storage
 Deployment Frontent and Backend :- Vercel
 
 # Links
-Video Link :- 
+Video Link :- https://www.loom.com/share/dd6ae882d79d41c788341d54f0185c49
 Deployed Application Link :- https://event-management-platform-app-frontend.vercel.app/
 Frontend Github Link :- https://github.com/Rudra-Dey-Sarkar/event-management-platform-app-frontend
 Frontend Github Link :- https://github.com/Rudra-Dey-Sarkar/event-management-platform-app-backend
