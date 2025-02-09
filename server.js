@@ -79,12 +79,27 @@ app.post("/login", async (req, res) => {
     }
 });
 
-//Route to view event
-app.post("/view-events", async (req, res) => {
+//Route to view event of a specific user
+app.post("/view-user-events-details", async (req, res) => {
     const { userId } = req.body;
 
     try {
         const response = await eventsSchemaModel.find({ userId: userId });
+        if (response.length > 0) {
+            res.status(200).json(response);
+        } else {
+            res.status(404).json("No Events data");
+        }
+    } catch (errors) {
+        res.status(400).json(errors);
+    }
+});
+//Route to view specific event
+app.post("/view-specific-events-details", async (req, res) => {
+    const { _id } = req.body;
+
+    try {
+        const response = await eventsSchemaModel.find({ _id: _id });
         if (response.length > 0) {
             res.status(200).json(response);
         } else {
@@ -123,11 +138,12 @@ app.post("/add-event", async (req, res) => {
 //Route to edit event
 app.put("/edit-event", async (req, res) => {
     const data = req.body;
-    const { id, ...allData } = req.body;
+    const { _id, ...allData } = req.body;
+
     try {
         if (!data.attendees) {
             const response = await eventsSchemaModel.findOneAndUpdate(
-                { _id: id },
+                { _id: _id },
                 { $set: allData },
                 { new: true });
             if (response) {
@@ -137,7 +153,7 @@ app.put("/edit-event", async (req, res) => {
             }
         } else {
             const response = await eventsSchemaModel.findOneAndUpdate(
-                { _id: id },
+                { _id: _id },
                 { $push: allData },
                 { new: true });
             if (response) {
@@ -153,6 +169,7 @@ app.put("/edit-event", async (req, res) => {
 //Route to remove event
 app.delete("/remove-event", async (req, res) => {
     const { id } = req.body;
+
     try {
         const response = await eventsSchemaModel.findOneAndDelete({_id:id});
         if (response) {
