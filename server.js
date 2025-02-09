@@ -78,7 +78,20 @@ app.post("/login", async (req, res) => {
         res.status(400).json(errors);
     }
 });
+//Route to view all event of all users
+app.get("/view-events", async (req, res) => {
 
+    try {
+        const response = await eventsSchemaModel.find();
+        if (response.length > 0) {
+            res.status(200).json(response);
+        } else {
+            res.status(404).json("No Events data");
+        }
+    } catch (errors) {
+        res.status(400).json(errors);
+    }
+});
 //Route to view event of a specific user
 app.post("/view-user-events-details", async (req, res) => {
     const { userId } = req.body;
