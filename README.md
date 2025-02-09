@@ -14,6 +14,10 @@ Deployed Application Link :- https://event-management-platform-app-frontend.verc
 Frontend Github Link :- https://github.com/Rudra-Dey-Sarkar/event-management-platform-app-frontend
 Frontend Github Link :- https://github.com/Rudra-Dey-Sarkar/event-management-platform-app-backend
 
+# Test Credentials
+Email :- rudradeysarkar1@gmail.com
+Password :- rudra9595
+
 # Contacts
 In case you have any doubts you can contact me using below details :- 
 Email Id :- rudradeysarkar5@gmail.com 
